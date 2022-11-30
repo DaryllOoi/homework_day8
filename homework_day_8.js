@@ -20,41 +20,42 @@ console.log("first 5 numbers",var1);
  Create a variable and assign to it an object containing your name, surname, email address and age.
 */
 
-let arrayMe = [
-    {Name : "daryll"},
-    {surname : "ooi"},
-    {email : "daryllooi@hotmail.com"},
-    {age: 24},
-];
-console.log("me :",arrayMe);
+let me = {
+    Name : "daryll",
+    surname : "ooi",
+    email : "daryllooi@hotmail.com",
+    age: 24,
+}
+
+console.log("me :",me);
 
 /* EXERCISE 3
  Add to the previously created object a property with a boolean value to rappresent wheter you have or not a driving license.
 */
 
-if( arrayMe.age >= 18){
-    console.log("you are allowed to have a driving license");
-}else{
-    console.log("you can't have driving license")
-};
+me.drivingLicense = true;
 
 /* EXERCISE 4
  Remove from the previously created object the age property.
 */
 
-arrayMe.splice(3);
-console.log("new :",arrayMe);
+delete me.age;
+console.log(me);
 
 /* EXERCISE 5
  Create a second object with another name, surname, email address and verify that this object has a different email address than the previous one.
 */
 
-let arrayMeNew = [
-    {Name : "john"},
-    {surname : "doe"},
-    {email : "johndoe@hotmail.com"},
-];
-console.log("me :",arrayMeNew);
+let me2 = {
+    name: "john",
+    surname: "doe",
+    email: "johndoe@hotmail.com",
+  };
+  
+  console.log(
+    "The email is equal to the previous one: ",
+    (me.email !== me2.email)
+  );
 
 /* EXERCISE 6
  You are working on an e-commerce website. In the variable totalShoppingCart you are storing the total amount spent by the current user.
@@ -90,31 +91,27 @@ let car={
     licensePlate : "12D64650",
 } 
 
-let car1={
-    brand : "vw",
-    model : "polo",
-    licensePlate : "12D64651",
-} 
-let car2={
-    brand : "vw",
-    model : "polo",
-    licensePlate : "12D64652",
-} 
-let car3={
-    brand : "vw",
-    model : "polo",
-    licensePlate : "12D64653",
-} 
-let car4={
-    brand : "vw",
-    model : "polo",
-    licensePlate : "12D64654",
-} 
-let car5={
-    brand : "vw",
-    model : "polo",
-    licensePlate : "12D64655",
-} 
+let car1={}
+Object.assign(car1, car)
+car1.licensePlate = "12D64651"
+
+let car2={}
+Object.assign(car2, car)
+car1.licensePlate = "12D64652"
+
+let car3={}
+Object.assign(car3, car)
+car1.licensePlate = "12D64653"
+
+let car4={}
+Object.assign(car4, car)
+car1.licensePlate = "12D64654"
+
+let car5={}
+Object.assign(car5, car)
+car1.licensePlate = "12D64655"
+
+console.log("cars",car1,car2,car3,car4,car5);
 
 /* EXERCISE 9
  Create a variable called carsForRent and assign to it an array containing all the cars from the previous exercise.
@@ -138,37 +135,20 @@ console.log("new",carsForRent);
  Print to the console the type of the car variable you created before, as well as the types of its licensePlate and brand properties.
 */
 
-for( let i=0; i<carsForRent.length; i+=1){
-    let carForRentNew = carsForRent[i];
-
-console.log("new",
-    carForRentNew.brand,
-    carForRentNew.licensePlate);
-}
+console.log(typeof car,typeof car.licensePlate, typeof car.brand);
 
 /* EXERCISE 12
  Create a new variable called carsForSale assigning to it an empty array, and then insert 3 cars into it.
  Create a new variable called totalCars and assign to it the total number of cars present in the carsForSale and carsForRent arrays.
 */
 
-let carsForSale = []
-let car6={
-        brand : "vw",
-        model : "polo",
-        licensePlate : "12D64656",}
+let carsForSale = [];
+carsForSale.push(car1,car2,car5)
 
-        let car7={
-            brand : "vw",
-            model : "polo",
-            licensePlate : "12D64657",}
-
-            let car8={
-                brand : "vw",
-                model : "polo",
-                licensePlate : "12D64658",}
-carsForSale = [car6,car7,car8];
-
-let totalCars = carsForSale.concat(carsForRent);
+let totalCars = {
+    carsForSale: carsForSale.length,
+    carsForRent: carsForRent.length,
+};
 console.log("total cars ", totalCars);
 
 /* EXERCISE 13
