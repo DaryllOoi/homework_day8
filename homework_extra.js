@@ -19,10 +19,8 @@ console.log(code2);
  Write a piece of code for getting the maximum numerical value from an array.
 */
 
-let array1 = [1,2,3,4,5,6]
-for (let i=0; i<array1.length; i++){
-    console.log(array1[i]);
-}
+let numberMax = Math.max(...code1)
+console.log(numberMax)
 
 /* EXTRA 3
  Write a piece of code for getting the minimum numerical value from an array.
